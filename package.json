@@ -1,0 +1,19 @@
+{
+  "name": "period-selector",
+  "version": "1.0.0",
+  "description": "composant pour sélectionner une période",
+  "main": "period-selector.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gp-it/period-selector.git"
+  },
+  "author": "Geoffrey Pliez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gp-it/period-selector/issues"
+  },
+  "homepage": "https://github.com/gp-it/period-selector#readme"
+}
