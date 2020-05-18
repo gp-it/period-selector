@@ -1,0 +1,54 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "period-selector",
+      "path": "./period-selector.js",
+      "attributes": [
+        {
+          "name": "start",
+          "type": "string"
+        },
+        {
+          "name": "end",
+          "type": "string"
+        },
+        {
+          "name": "min",
+          "type": "string"
+        },
+        {
+          "name": "max",
+          "type": "string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "start",
+          "attribute": "start",
+          "type": "string"
+        },
+        {
+          "name": "end",
+          "attribute": "end",
+          "type": "string"
+        },
+        {
+          "name": "min",
+          "attribute": "min",
+          "type": "string"
+        },
+        {
+          "name": "max",
+          "attribute": "max",
+          "type": "string"
+        }
+      ],
+      "events": [
+        {
+          "name": "change"
+        }
+      ]
+    }
+  ]
+}

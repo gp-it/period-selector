@@ -1,38 +1,53 @@
-import { LitElement, html } from 'lit-element';
-import { lastDayOfMonth } from './utils';
+import { LitElement, html, css } from 'lit-element';
 
 class PeriodSelector extends LitElement {
   static get properties() {
     return {
-      start: String,
-      end: String,
+      title: { type: String },
+      start: { type: String },
+      end: { type: String },
+      min: { type: String },
+      max: { type: String },
     };
+  }
+
+  static get styles() {
+    return css`
+      .periode-input {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+      }
+    `;
+  }
+
+  constructor() {
+    super();
+    this.title = 'Période';
   }
 
   render() {
     return html`
-      <style>
-        .periode-input {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          justify-items: center;
-        }
-      </style>
       <fieldset>
-        <legend>Période</legend>
+        <legend>${this.title}</legend>
         <div class="periode-input">
           <input
             name="start"
             type="date"
             aria-label="start"
-            value="${this.start}"
+            .value="${this.start}"
+            min=${this.min}
+            max="${this.getMax()}"
             @change="${this._periodChanged}"
           />
+
           <input
             name="end"
             type="date"
             aria-label="end"
-            value="${this.end}"
+            .value="${this.end}"
+            min="${this.getMin()}"
+            max="${this.max}"
             @change="${this._periodChanged}"
           />
         </div>
@@ -41,23 +56,22 @@ class PeriodSelector extends LitElement {
   }
 
   _periodChanged(event) {
-    let target = event.target;
-    if (target.name === 'start') {
+    if (event.target.name === 'start') {
       this.start = event.target.value;
-      if (!this.end || this.end < this.start) {
-        const date = new Date(this.start);
-        this.end = lastDayOfMonth(date.getMonth() + 1, date.getFullYear());
-      }
     } else {
       this.end = event.target.value;
-      if (!this.start || this.start > this.end) {
-        const date = new Date(this.end);
-        this.start = `${date.getFullYear()}-${(date.getMonth() + 1)
-          .toString()
-          .padStart(2, '0')}-01`;
-      }
     }
-    this.dispatchEvent(new Event('change'));
+    if (this.start && this.end) this.dispatchEvent(new CustomEvent('change'));
+  }
+
+  getMin() {
+    if (!this.min || this.start > this.min) return this.start;
+    return this.min;
+  }
+
+  getMax() {
+    if (!this.max || this.end < this.max) return this.end;
+    return this.max;
   }
 }
 customElements.define('period-selector', PeriodSelector);

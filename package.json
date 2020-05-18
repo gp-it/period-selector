@@ -1,19 +1,73 @@
 {
   "name": "period-selector",
-  "version": "1.0.0",
-  "description": "composant pour sélectionner une période",
+  "version": "0.0.2",
+  "description": "Webcomponent period-selector following open-wc recommendations",
   "main": "period-selector.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start --coverage",
+    "storybook": "start-storybook",
+    "storybook:build": "build-storybook",
+    "analyze": "wca analyze --format json --outFile custom-elements.json",
+    "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
+    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
+    "lint:prettier": "prettier \"**/*.js\" --check --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.js\" --write --ignore-path .gitignore",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "test:watch": "karma start --auto-watch=true --single-run=false"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gp-it/period-selector.git"
   },
-  "author": "Geoffrey Pliez",
-  "license": "ISC",
+  "author": "period-selector",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gp-it/period-selector/issues"
   },
-  "homepage": "https://github.com/gp-it/period-selector#readme"
+  "homepage": "https://github.com/gp-it/period-selector#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "@open-wc/demoing-storybook": "^2.0.0",
+    "es-dev-server": "^1.23.0",
+    "eslint": "^6.1.0",
+    "@open-wc/eslint-config": "^2.0.0",
+    "prettier": "^2.0.4",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^1.0.0",
+    "lint-staged": "^8.0.0",
+    "@open-wc/testing-karma": "^3.0.0",
+    "deepmerge": "^3.2.0",
+    "@open-wc/testing": "^2.0.0"
+  },
+  "dependencies": {
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2"
+  },
+  "module": "index.js",
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
 }
