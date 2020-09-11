@@ -1,6 +1,6 @@
 {
-  "name": "period-selector",
-  "version": "0.0.2",
+  "name": "@gp-it/period-selector",
+  "version": "0.0.3",
   "description": "Webcomponent period-selector following open-wc recommendations",
   "main": "period-selector.js",
   "scripts": {
@@ -31,21 +31,21 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
-    "@open-wc/demoing-storybook": "^2.0.0",
-    "es-dev-server": "^1.23.0",
+    "@open-wc/demoing-storybook": "^2.4.0",
+    "@open-wc/eslint-config": "^2.1.0",
+    "@open-wc/testing": "^2.5.25",
+    "@open-wc/testing-karma": "^4.0.5",
+    "deepmerge": "^3.2.0",
+    "es-dev-server": "^1.57.4",
     "eslint": "^6.1.0",
-    "@open-wc/eslint-config": "^2.0.0",
-    "prettier": "^2.0.4",
     "eslint-config-prettier": "^6.11.0",
     "husky": "^1.0.0",
     "lint-staged": "^8.0.0",
-    "@open-wc/testing-karma": "^3.0.0",
-    "deepmerge": "^3.2.0",
-    "@open-wc/testing": "^2.0.0"
+    "prettier": "^2.1.1"
   },
   "dependencies": {
-    "lit-element": "^2.2.1",
-    "lit-html": "^1.1.2"
+    "lit-element": "^2.4.0",
+    "lit-html": "^1.3.0"
   },
   "module": "index.js",
   "eslintConfig": {
