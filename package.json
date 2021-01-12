@@ -1,6 +1,6 @@
 {
   "name": "@gp-it/period-selector",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Webcomponent period-selector following open-wc recommendations",
   "main": "period-selector.js",
   "scripts": {
