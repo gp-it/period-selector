@@ -1,27 +1,16 @@
 {
   "name": "@gp-it/period-selector",
   "version": "0.0.4",
-  "description": "Webcomponent period-selector following open-wc recommendations",
-  "main": "period-selector.js",
+  "description": "Webcomponent period-selector",
   "scripts": {
-    "test": "karma start --coverage",
-    "storybook": "start-storybook",
-    "storybook:build": "build-storybook",
     "analyze": "wca analyze --format json --outFile custom-elements.json",
     "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
-    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
-    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
-    "lint:prettier": "prettier \"**/*.js\" --check --ignore-path .gitignore",
-    "format:prettier": "prettier \"**/*.js\" --write --ignore-path .gitignore",
-    "lint": "npm run lint:eslint && npm run lint:prettier",
-    "format": "npm run format:eslint && npm run format:prettier",
-    "test:watch": "karma start --auto-watch=true --single-run=false"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gp-it/period-selector.git"
   },
-  "author": "period-selector",
+  "author": "Geoffrey Pliez",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gp-it/period-selector/issues"
@@ -31,17 +20,6 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
-    "@open-wc/demoing-storybook": "^2.4.0",
-    "@open-wc/eslint-config": "^2.1.0",
-    "@open-wc/testing": "^2.5.25",
-    "@open-wc/testing-karma": "^4.0.5",
-    "deepmerge": "^3.2.0",
-    "es-dev-server": "^1.57.4",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.11.0",
-    "husky": "^1.0.0",
-    "lint-staged": "^8.0.0",
-    "prettier": "^2.1.1"
   },
   "dependencies": {
     "lit-element": "^2.4.0",
@@ -52,22 +30,6 @@
     "extends": [
       "@open-wc/eslint-config",
       "eslint-config-prettier"
-    ]
-  },
-  "prettier": {
-    "singleQuote": true,
-    "arrowParens": "avoid"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
     ]
   }
 }
